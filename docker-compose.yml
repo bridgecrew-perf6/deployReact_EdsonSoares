@@ -1,18 +1,5 @@
 version: '3'
 services:
-  nginx:
-    build:
-      dockerfile: ./Dockerfile
-      context: .
-    image: dev/nginx
-    container_name: nginx
-    ports:
-      - "8001:80"
-    networks: 
-      - production-network
-    depends_on:
-      - "react_app"
-
   react_app:
     build:
       dockerfile: ./Dockerfile
@@ -20,7 +7,7 @@ services:
     image: dev/node
     container_name: react-application
     ports:
-      - "3000:3000"
+      - "8005:3000"
     networks:
       - production-network
 
